@@ -1,0 +1,10 @@
+<div>
+    <ul>
+        @for (task of getTasks();  track task.id) {
+            <li>
+                <input type="checkbox" [checked]="task.status === Status.COMPLETED" />
+                {{ task.title }} - {{ task.description }} ({{ task.status }})
+            </li>
+        }
+    </ul>
+</div>

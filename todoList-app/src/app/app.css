@@ -1,0 +1,13 @@
+header {
+    background-color: #AEDEFC;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 2px solid #a0cce7;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
