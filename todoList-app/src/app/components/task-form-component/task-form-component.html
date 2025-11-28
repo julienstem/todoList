@@ -1,0 +1,14 @@
+<div class="backdrop">
+<div class="main-form-div">
+    <div class="form-input">
+        <input class="form-input-title" type="text" placeholder="Task" (input)="onTitleInputChange($event)">
+        <textarea class="form-input-description" type="text" placeholder="Description" (input)="onDescritpionInputChange($event)"></textarea>
+    </div>
+    <div class="form-buttons">
+        <button class="cancel-button" type="button" (click)="onCancelButtonClicked()">Cancel</button>
+        <button class="add-button" type="button" [disabled]="!isValidTask()" (click)="onAddButtonClicked()">Add</button>
+
+    </div>
+
+</div>
+</div>

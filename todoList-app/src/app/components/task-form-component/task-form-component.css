@@ -1,0 +1,105 @@
+.backdrop {
+  position: fixed;
+  inset: 0;             
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.main-form-div {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  min-height: 200px;     
+  max-height: 300px;        
+  margin: 1rem auto 0;            
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.75rem;
+  align-items: stretch;
+  flex:1;
+}
+
+.form-input-title,
+.form-input-description {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.form-input-title:focus,
+.form-input-description:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3);
+}
+
+.form-input-description{
+    resize: none;
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+  .main-form-div {
+    max-width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.form-buttons{
+  display: flex;
+  margin-top: 0.75rem;
+  justify-content: flex-end;
+  gap: 0.35rem
+}
+
+.cancel-button, .add-button{
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 1rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.cancel-button:hover{
+  background-color: rgb(211, 211, 211);
+}
+
+.cancel-button:active{
+  background-color: rgb(197, 197, 197);
+}
+
+.add-button{
+  border:1px solid rgb(66, 66, 255);
+  color: rgb(66, 66, 255);
+}
+
+.add-button:not(:disabled):hover{
+  background-color: rgb(66, 66, 255);
+  color: white;
+}
+
+.add-button:not(:disabled):active{
+  background-color: rgb(57, 57, 252)
+}
+
+.add-button:disabled{
+  border: 1px solid rgb(223, 223, 223);
+  color: rgb(223, 223, 223);
+}

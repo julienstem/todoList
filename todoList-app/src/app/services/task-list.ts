@@ -9,9 +9,9 @@ export class TaskListService {
 
   constructor() {
     this.tasks = [
-      { id: 1, title: 'Task 1', category: 'Work', description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla",status: Status.PENDING },
-      { id: 2, title: 'Task 2', category: 'Home', description: "coucou" ,status: Status.IN_PROGRESS },
-      { id: 3, title: 'Task 3', category: 'Hobby', status: Status.COMPLETED },
+      {title: 'Task 1', category: 'Work', description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla",status: Status.PENDING },
+      {title: 'Task 2', category: 'Home', description: "coucou" ,status: Status.IN_PROGRESS },
+      {title: 'Task 3', category: 'Hobby', status: Status.COMPLETED },
     ];
   }
 
@@ -23,11 +23,9 @@ export class TaskListService {
     this.tasks.push(task);
   }
 
-  updateTaskStatus(id: number, status: Status): void {
-    const task = this.tasks.find(t => t.id === id);
-    if (task) {
-      task.status = status;
-    }
+  createTask(title:string,description:string,category:string): Task{
+    let task:Task = {title,category,description,status: Status.PENDING}
+    return task;
   }
 
   removeTask(task:Task): void{
