@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task, Status, ConstructEnum } from '../../task';
 import { TaskListService } from '../../services/task-list';
