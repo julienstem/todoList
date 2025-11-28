@@ -1,0 +1,120 @@
+/* Container centers the list and adds padding */
+.tasks-list {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: #f8fafc;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  background-color: #f8fafc;
+}
+
+.task-item + .task-item {
+  margin-top: 0.75rem;
+}
+
+.task-card {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.8rem 1rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.task-main-content{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+.task-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+  border-color: #cbd5f5;
+  background-color: #f9fbff;
+}
+
+.task-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+}
+
+.task-status-checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.task-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+  text-wrap: nowrap;
+}
+
+.task-description{
+    margin: 0;
+    font-size: 0.90rem;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.task-item.completed .task-card {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  box-shadow: none;
+}
+
+.task-status{
+  width: 100%;
+  height: auto;
+  margin-left: 10rem;
+}
+
+.task-remove{
+  background-color: transparent;
+  color: rgb(250, 49, 49);
+  border: none;
+}
+
+.task-remove:hover{
+  background-color: rgb(250, 49, 49);
+  color: white;
+  box-shadow: none;
+}
+
+.task-details-content{
+  width: 100%;
+  border-top: 1px solid #e2e8f0;
+  color: #94a3b8;
+  text-wrap: wrap;
+}
+
+.task-description{
+  text-align: left;
+  padding: 0.75rem;
+}
