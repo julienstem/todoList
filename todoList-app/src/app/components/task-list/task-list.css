@@ -2,16 +2,22 @@
 .tasks-list {
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem;
-  background: #f8fafc;
+  margin-top: 0.5rem;
+  align-items: stretch;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
 }
 
 .task-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 500px;
-  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
 }
 
 .task-item + .task-item {

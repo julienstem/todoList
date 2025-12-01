@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Task, Status} from '../../task'
 import { TaskListService } from '../../services/task-list';
+import { TaskManagerService } from '../../services/task-manager-service';
 
 @Component({
   selector: 'app-task-form-component',
@@ -12,9 +13,8 @@ export class TaskFormComponent {
   private validTask:boolean = false;
   private currentTitle:string = "";
   private currentDescription:string = "";
-  private showPopUp:boolean = false;
 
-  constructor(private taskListService:TaskListService){
+  constructor(private taskListService:TaskListService, private taskManagerService:TaskManagerService){
 
   }
 
@@ -37,21 +37,17 @@ export class TaskFormComponent {
     console.log(this.taskListService.getTasks())
     this.currentDescription = "";
     this.currentTitle = "";
-    this.showPopUp = false;
+    this.taskManagerService.hide();
   }
 
   onCancelButtonClicked(){
     this.currentDescription = "";
     this.currentTitle = "";
-    this.showPopUp = false;
+    this.taskManagerService.hide();
   }
 
   show(){
-    this.showPopUp = true;
-  }
-
-  isShowing():boolean{
-    return this.showPopUp;
+    this.taskManagerService.show();
   }
 
   isValidTask(): boolean{

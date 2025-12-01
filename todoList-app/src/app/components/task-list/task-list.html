@@ -1,6 +1,6 @@
 <div class="tasks-list">
   <ul class="task-list">
-    @for (task of getTasks(); track task.id) {
+    @for (task of getTasks(); track task.title) {
       <li class="task-item" [class.completed]="task.status === Status.COMPLETED">
         <button class="task-card" type="button" (click)="ToggleDescription(task)">
           <div class="task-main-content">

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskManagerService } from '../../services/task-manager-service';
 
 @Component({
   selector: 'app-task-manager-component',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './task-manager-component.css',
 })
 export class TaskManagerComponent {
+  constructor(private taskManagerService: TaskManagerService) {}
 
+  openTaskForm() {
+    this.taskManagerService.show();
+  }
 }
