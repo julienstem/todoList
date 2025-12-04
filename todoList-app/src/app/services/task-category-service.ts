@@ -18,6 +18,7 @@ export class TaskCategoryService {
   }
 
   passFilter(category: string): boolean {
+    console.log(`Filtering by ${this.filterCategory}, task category is ${category}`);
     return this.filterCategory === 'None' || this.filterCategory === category;
   }
 

@@ -13,12 +13,13 @@
                 (click) = "$event.stopPropagation()"
               />
               <p class="task-title">{{ task.title }}</p>
+              
               <select class="task-status" (change)="OnSelectChange($event,task)" (click)="$event.stopPropagation()" [value]="task.status">
                 <option [value]="Status.PENDING">Pending</option>
                 <option [value]="Status.IN_PROGRESS">In Progress</option>
                 <option [value]="Status.COMPLETED">Completed</option>
               </select>
-              <app-task-category-component [currentCategory]="task.category" (click)="$event.stopPropagation()"></app-task-category-component>
+              <app-task-category-component [currentCategory]="task.category" [linkedTask]="task" (click)="$event.stopPropagation()"></app-task-category-component>
               <button class="task-remove" (click)="RemoveTask(task)">
                 <i class="bi bi-trash"></i>
               </button>

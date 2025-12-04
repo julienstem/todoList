@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { TaskManagerService } from '../../services/task-manager-service';
-import { TaskCategoryComponent } from '../task-category-component/task-category-component';
+import { TaskFilterComponent } from '../task-filter-component/task-filter-component';
 
 @Component({
   selector: 'app-task-manager-component',
-  imports: [TaskCategoryComponent],
+  imports: [TaskFilterComponent],
   templateUrl: './task-manager-component.html',
   styleUrl: './task-manager-component.css',
 })

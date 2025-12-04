@@ -1,4 +1,4 @@
-<select class="category-select" (change)="onCategoryChange($event)">
+<select class="category-filter" (change)="onCategoryChange($event)">
   @for (item of getCategories(); track item) {
     <option [value]="item" [selected]="compare(item)">{{ item }}</option>
   }

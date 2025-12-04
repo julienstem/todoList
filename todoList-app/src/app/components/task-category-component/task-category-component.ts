@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TaskCategoryService } from '../../services/task-category-service';
+import { Task } from '../../task';
 
 @Component({
   selector: 'app-task-category-component',
@@ -9,6 +10,7 @@ import { TaskCategoryService } from '../../services/task-category-service';
 })
 export class TaskCategoryComponent {
   @Input() currentCategory: string = 'None';
+  @Input() linkedTask: Task | null = null;
   constructor(public taskCategoryService: TaskCategoryService) {}
 
   getCategories(): string[] {
@@ -18,15 +20,13 @@ export class TaskCategoryComponent {
   onCategoryChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.setCurrentCategory(selectElement.value);
+    if (this.linkedTask) {
+      this.linkedTask.category = this.currentCategory;
+    }
   }
 
   setCurrentCategory(category: string): void {
     this.currentCategory = category;
-    this.setFilterCategory();
-  }
-
-  setFilterCategory(): void {
-    this.taskCategoryService.setFilterCategory(this.currentCategory);
   }
 
   getCurrentCategory(): string {
