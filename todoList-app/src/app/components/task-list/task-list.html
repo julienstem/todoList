@@ -1,33 +1,36 @@
 <div class="tasks-list">
   <ul class="task-list">
     @for (task of getTasks(); track task.title) {
-      <li class="task-item" [class.completed]="task.status === Status.COMPLETED">
-        <button class="task-card" type="button" (click)="ToggleDescription(task)">
-          <div class="task-main-content">
-            <input
-              type="checkbox"
-              class="task-status-checkbox"
-              [checked]="task.status === Status.COMPLETED"
-              (change)="OnToggleInput($event,task)"
-              (click) = "$event.stopPropagation()"
-            />
-            <p class="task-title">{{ task.title }}</p>
-            <select class="task-status" (change)="OnSelectChange($event,task)" (click)="$event.stopPropagation()" [value]="task.status">
-              <option [value]="Status.PENDING">Pending</option>
-              <option [value]="Status.IN_PROGRESS">In Progress</option>
-              <option [value]="Status.COMPLETED">Completed</option>
-            </select>
-            <button class="task-remove" (click)="RemoveTask(task)">
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-          @if(IsShowDescription(task)){
-            <div class="task-details-content">
-              <p class="task-description">{{task.description}}</p>
+      @if (task != null && passFilter(task)) {
+        <li class="task-item" [class.completed]="task.status === Status.COMPLETED">
+          <button class="task-card" type="button" (click)="ToggleDescription(task)">
+            <div class="task-main-content">
+              <input
+                type="checkbox"
+                class="task-status-checkbox"
+                [checked]="task.status === Status.COMPLETED"
+                (change)="OnToggleInput($event,task)"
+                (click) = "$event.stopPropagation()"
+              />
+              <p class="task-title">{{ task.title }}</p>
+              <select class="task-status" (change)="OnSelectChange($event,task)" (click)="$event.stopPropagation()" [value]="task.status">
+                <option [value]="Status.PENDING">Pending</option>
+                <option [value]="Status.IN_PROGRESS">In Progress</option>
+                <option [value]="Status.COMPLETED">Completed</option>
+              </select>
+              <app-task-category-component [currentCategory]="task.category" (click)="$event.stopPropagation()"></app-task-category-component>
+              <button class="task-remove" (click)="RemoveTask(task)">
+                <i class="bi bi-trash"></i>
+              </button>
             </div>
-          }
-        </button>
-      </li>
+            @if(IsShowDescription(task)){
+              <div class="task-details-content">
+                <p class="task-description">{{task.description}}</p>
+              </div>
+            }
+          </button>
+        </li>
+      }
     }
   </ul>
 </div>
