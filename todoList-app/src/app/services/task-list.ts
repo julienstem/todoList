@@ -5,14 +5,27 @@ import { Task, Status } from '../task';
   providedIn: 'root',
 })
 export class TaskListService {
+  private storageKey: string = 'tasks';
   private tasks: Task[];
 
   constructor() {
-    this.tasks = [
-      {title: 'Task 1', category: 'Work', description: "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla",status: Status.PENDING },
-      {title: 'Task 2', category: 'Home', description: "coucou" ,status: Status.IN_PROGRESS },
-      {title: 'Task 3', category: 'Hobby', status: Status.COMPLETED },
-    ];
+    this.tasks =  this.loadTask();
+  }
+
+  private loadTask(): Task[] {
+    const tasksJson = localStorage.getItem(this.storageKey);
+    if (tasksJson) {
+      return JSON.parse(tasksJson) as Task[];
+    }
+    return [];
+  }
+
+  private saveTasks(): void {
+    localStorage.setItem(this.storageKey, JSON.stringify(this.tasks));
+  }
+
+  updateTasks(): void {
+    this.saveTasks();
   }
 
   getTasks(): Task[] {
@@ -21,6 +34,7 @@ export class TaskListService {
 
   addTask(task: Task): void {
     this.tasks.push(task);
+    this.saveTasks();
   }
 
   createTask(title:string,description:string,category:string): Task{
@@ -34,9 +48,14 @@ export class TaskListService {
       return;
     }
     this.tasks.splice(index,1)
+    this.saveTasks();
   }
 
   indexOf(task:Task): number {
     return this.tasks.indexOf(task);
+  }
+
+  isEmpty(): boolean {
+    return this.tasks.length === 0;
   }
 }

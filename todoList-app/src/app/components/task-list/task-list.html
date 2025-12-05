@@ -34,4 +34,9 @@
       }
     }
   </ul>
+  @if (isTaskListEmpty()) {
+    <div class="no-tasks-message">
+      <p>No tasks available. Please add a task.</p>
+    </div>
+  }
 </div>

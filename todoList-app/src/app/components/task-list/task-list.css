@@ -1,6 +1,7 @@
 /* Container centers the list and adds padding */
 .tasks-list {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 0.5rem;
   align-items: stretch;
@@ -128,4 +129,11 @@
 .task-description{
   text-align: left;
   padding: 0.75rem;
+}
+
+.no-tasks-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.75rem;
 }

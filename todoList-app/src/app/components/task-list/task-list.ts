@@ -30,12 +30,14 @@ export class TaskListComponent {
     else{
       task.status = Status.PENDING;
     }
+    this.taskListService.updateTasks();
   }
 
   OnSelectChange(event: Event, task: Task){
     const select = event.target as HTMLSelectElement;
     let str = select.value;
     task.status = ConstructEnum(str);
+    this.taskListService.updateTasks();
   }
 
   RemoveTask(task:Task){
@@ -54,5 +56,9 @@ export class TaskListComponent {
 
   passFilter(task:Task): boolean{
     return this.taskCategoryService.passFilter(task.category);
+  }
+
+  isTaskListEmpty(): boolean {
+    return this.taskListService.isEmpty();
   }
 }
