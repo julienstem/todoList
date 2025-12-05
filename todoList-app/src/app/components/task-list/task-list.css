@@ -1,17 +1,24 @@
 /* Container centers the list and adds padding */
 .tasks-list {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 2rem 1rem;
-  background: #f8fafc;
+  margin-top: 0.5rem;
+  align-items: stretch;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
 }
 
 .task-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 500px;
-  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
 }
 
 .task-item + .task-item {
@@ -41,9 +48,11 @@
 .task-main-content{
   width: 100%;
   display: flex;
+  flex: 1;
   align-items: center;
   gap: 0.75rem;
-  justify-content: flex-start;
+  min-width: 0;
+
 }
 
 .task-card:hover {
@@ -66,11 +75,14 @@
 }
 
 .task-title {
-  margin: 0;
   font-weight: 600;
   font-size: 0.95rem;
   color: #0f172a;
-  text-wrap: nowrap;
+  flex: 1 1 auto;   /* allow shrinking */
+  white-space: normal;
+  word-break: break-word;
+  margin: 0;
+  text-align: left;
 }
 
 .task-description{
@@ -92,7 +104,7 @@
 .task-status{
   width: 100%;
   height: auto;
-  margin-left: 10rem;
+  max-width: 100px;
 }
 
 .task-remove{
@@ -117,4 +129,11 @@
 .task-description{
   text-align: left;
   padding: 0.75rem;
+}
+
+.no-tasks-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.75rem;
 }

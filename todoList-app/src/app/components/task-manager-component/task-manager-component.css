@@ -1,0 +1,40 @@
+.task-manager{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: auto;
+    padding-top: 4rem;
+}
+
+.task-add-button{
+    padding: 0.4rem 1rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.task-add-button{
+  border:1px solid rgb(66, 66, 255);
+  color: rgb(66, 66, 255);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.task-add-button:hover{
+  background-color: rgb(66, 66, 255);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+}
+
+.task-add-button:active{
+  background-color: rgb(57, 57, 252);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+}
+
