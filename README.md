@@ -1,3 +1,9 @@
+---
+title: "Todo List"
+description_fr: "Site de liste de tache. Projet effectué pour apprendre Angular et le déploiement via Github Pages."
+description_eng: "Todo list website. Made to learn Angular and Github pages deployement."
+---
+
 # TodoListApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
